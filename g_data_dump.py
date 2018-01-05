@@ -10,7 +10,7 @@ try:
     cur = con.cursor()
     # execute method that process sql commands in db
     cur.execute('''DROP TABLE IF EXISTS all_applicants_g''')
-
+    # creates the table with all the header row as columns
     cur.execute('''CREATE TABLE all_applicants_g
         (   id serial PRIMARY KEY,
             date text,
