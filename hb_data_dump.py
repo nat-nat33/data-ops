@@ -9,7 +9,7 @@ try:
     # allows python code to execute sql commands
     cur = con.cursor()
     # execute method that process sql commands in db
-    cur.execute('''DROP TABLE IF EXISTS all_contacts''')
+    cur.execute('''DROP TABLE IF EXISTS all_contacts_hb''')
 
     cur.execute('''CREATE TABLE all_contacts_hb
         (   contact_id integer,
