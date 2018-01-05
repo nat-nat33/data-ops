@@ -9,29 +9,30 @@ try:
     # allows python code to execute sql commands
     cur = con.cursor()
     # execute method that process sql commands in db
-    cur.execute('''DROP TABLE IF EXISTS all_contacts_g''')
+    cur.execute('''DROP TABLE IF EXISTS all_applicants_g''')
 
-    cur.execute('''CREATE TABLE all_contacts_g
-        (   DATE,
-            STATUS,
-            STAGE,
-            REFERAL,
-            PROJECTED_START_DATE,
-            FIRST,
-            LAST,
-            GENDER,
-            TERM,
-            LOCATION,
-            SKYPE,
-            START_DATE,
-            COHORT,
-            EXPERIENCE,
-            PROFESSION,
-            MOTIVATION,
-            MEDIA,
-            MEDIA2,
-            ELEVATE_SCHOLARSHIP,
-            NOTES_LOG
+    cur.execute('''CREATE TABLE all_applicants_g
+        (   id serial PRIMARY KEY,
+            date text,
+            status text,
+            stage text,
+            referal text,
+            projected_start_date text,
+            first text,
+            last text,
+            gender text,
+            term text,
+            location text,
+            skype text,
+            start_date text,
+            cohort text,
+            experience text,
+            profession text,
+            motivation text,
+            media text,
+            media2 text,
+            elevate_scholarship text,
+            notes_log text
         );''')
     print ("Table data created successfully")
  
@@ -42,26 +43,26 @@ try:
         print(i, row)
         cur.execute('''
             INSERT INTO "all_applicants_g" (
-            "DATE",
-            "STATUS",
-            "STAGE",
-            "REFERAL",
-            "PROJECTED_START_DATE",
-            "FIRST",
-            "LAST",
-            "GENDER",
-            "TERM",
-            "LOCATION",
-            "SKYPE",
-            "START_DATE",
-            "COHORT",
-            "EXPERIENCE",
-            "PROFESSION",
-            "MOTIVATION",
-            "MEDIA",
-            "MEDIA2",
-            "ELEVATE_SCHOLARSHIP",
-            "NOTES_LOG"
+            "date",
+            "status",
+            "stage",
+            "referal",
+            "projected_start_date",
+            "first",
+            "last",
+            "gender",
+            "term",
+            "location",
+            "skype",
+            "start_date",
+            "cohort",
+            "experience",
+            "profession",
+            "motivation",
+            "media",
+            "media2",
+            "elevate_scholarship",
+            "notes_log"
             ) values %s ''', [tuple(row)]
         )
     con.commit()

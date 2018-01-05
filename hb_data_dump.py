@@ -12,7 +12,8 @@ try:
     cur.execute('''DROP TABLE IF EXISTS all_contacts_hb''')
 
     cur.execute('''CREATE TABLE all_contacts_hb
-        (   contact_id integer,
+        (   id serial PRIMARY KEY,
+            contact_id integer,
             first_name text,
             last_name text,
             last_email_name text,
